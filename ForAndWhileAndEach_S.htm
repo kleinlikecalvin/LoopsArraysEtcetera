@@ -67,6 +67,19 @@ function whileLoopCalc(){
     }//end while
 }//end whileLoopCalc()
 
+jQuery(
+    function (){
+        $("#myBtn").click(
+            function(){
+                $("li").each(
+                    function(index, object){
+                        console.log("The index number is " + index + " and the object content is " + $(object).text());
+                    }//end each loop function
+                );//end each loop
+            }//end click function
+        );//end click event
+    }//end master function
+);//end jQuery
 </script>
 </head>
 
