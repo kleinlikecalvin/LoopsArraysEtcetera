@@ -7,17 +7,37 @@
 	.imgCaption {font-family: verdana; font-size: 20px; margin-bottom: 20px; text-align: center;}
 	.imgStyle {border: 7px double black}
 </style>
-	<script>
+<script>
 
 document.addEventListener("DOMContentLoaded", function() {
-	
-				document.getElementById("myBtn").addEventListener("click", showStuff);
+	document.getElementById("myBtn").addEventListener("click", showStuff);
+	}//end of loadEventListener function
+);//end event listener
+function showStuff(){
+	//Condensed array
+	//const myText = new Array("Dog", "Cat", "Cow", "Horse");
 
-			}//end of loadEventListener function
-		);
-	
+	//Literal array
+	//var myText = ["Dog", "Cat", "Monkey", "Horse"];
+
+	//Regular array constructor (also known as a constructor class)
+	//You have to designate the index numbers, they don't have to be in order or anything.
+	const myImage = new Array();
+	myImage[0] = "dog.jpg";
+	myImage[1] = "cat.jpg";
+	myImage[2] = "cow.jpg";
+	myImage[3] = "horse.jpg";
+
+	//FYI: other objects/constructors are Date, Math, String, Array, Image, Object
+
+	for(let i = 0; i < myImage.length; i++){
+		const imgTag = document.createElement("img");//creates <img>
+		imgTag.src = "images/" + myImage[i];//adds img src
+		document.body.appendChild(imgTag);//this adds img tags to the body of the document every time the loop runs
+	}
+}
 		
-	</script>
+</script>
 </head>
 <body>
 
