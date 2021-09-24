@@ -7,7 +7,8 @@
 <script>
 
 document.addEventListener("DOMContentLoaded", function() {
-		document.getElementById("happyBtn1").addEventListener("click", happyLoop1);
+	document.getElementById("happyBtn1").addEventListener("click", happyLoop1);
+    document.getElementById("happyBtn2").addEventListener("click", happyLoop2);
 	}
 );
 
@@ -37,10 +38,18 @@ function happyLoop1(){
     //for(instantiate variable to hold initial value; conditional number of times to loop; increment the loop)
 
     for(let i = 0; i<firstHappy.length; i++){
-        console.log(firstHappy[i]); //make sure its working and see what's going on
+        console.log(firstHappy[i]); //logs each index until the loop dies
     }//end for loop
 }//end happyLoop1()
 
+function happyLoop2(){
+    const secondHappy = new Array("I", "AM", "BECOMING","LESS", "CONFUSING");
+
+    //for-of loop
+    for(const hpy of secondHappy){
+        console.log(hpy[2]);//logs the char of index 2 in each index of the secondHappy array (undefined, undefined, C, S, N)
+    }
+}
 </script>
 </head>
 
