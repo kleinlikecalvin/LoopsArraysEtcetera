@@ -9,6 +9,8 @@
 document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("happyBtn1").addEventListener("click", happyLoop1);
     document.getElementById("happyBtn2").addEventListener("click", happyLoop2);
+    document.getElementById("theTextBox").addEventListener("change", whileLoopCalc);
+
 	}
 );
 
@@ -48,8 +50,23 @@ function happyLoop2(){
     //for-of loop
     for(const hpy of secondHappy){
         console.log(hpy[2]);//logs the char of index 2 in each index of the secondHappy array (undefined, undefined, C, S, N)
-    }
-}
+    }//end for-of loop
+}//end happyLoop2()
+
+function whileLoopCalc(){
+    const userInput = this.value; //value is a JS property, this refers to the object that made the function run.
+    let thisNum = 0; //basically same as i=0;
+    while(thisNum <= userInput){
+        const answer = thisNum * 2;
+        //console.log(thisNum + " * 2 = " + answer);
+        const addDiv = document.createElement("div");//create div tag
+        const textNode = document.createTextNode(thisNum + " * 2 = " + answer);//create the text to go in div
+        addDiv.appendChild(textNode);//put the text in the div
+        document.getElementById("myPara").appendChild(addDiv);//add the divs to the document using a preexsiting element
+        thisNum++;//incerements the thisNum var by 1 so that the while loop isn't infinite
+    }//end while
+}//end whileLoopCalc()
+
 </script>
 </head>
 
