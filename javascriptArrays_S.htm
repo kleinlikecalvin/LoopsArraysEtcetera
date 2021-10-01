@@ -8,6 +8,7 @@
 	.imgStyle {border: 7px double black}
 </style>
 <script>
+	//vvvvv this is the traditional way of preloading - back in 90s
 	if(document.images){
 		const pic1 = new Image();
 		pic1.src = "images/dog.jpg";
@@ -27,7 +28,7 @@ document.addEventListener("DOMContentLoaded", function() {
 );//end event listener
 function showStuff(){
 	//Condensed array
-	//const myText = new Array("Dog", "Cat", "Cow", "Horse");
+	const myText = new Array("Dog", "Cat", "Cow", "Horse");
 
 	//Literal array
 	//var myText = ["Dog", "Cat", "Monkey", "Horse"];
@@ -41,14 +42,53 @@ function showStuff(){
 	myImage[3] = "horse.jpg";
 
 	//FYI: other objects/constructors are Date, Math, String, Array, Image, Object
-
+	//for (initialStartingValue; numOfTimesToLoop; add 1){}
 	for(let i = 0; i < myImage.length; i++){
 		const imgTag = document.createElement("img");//creates <img>
 		imgTag.src = "images/" + myImage[i];//adds img src
 		document.body.appendChild(imgTag);//this adds img tags to the body of the document every time the loop runs
+		imgTag.className = "imgStyle"; //add border
+
+		const imgWidth = imgTag.width;
+		//console.log(imgWidth);
+		
+		const brTag = document.createElement("br");
+		document.body.appendChild(brTag);//add break tag between each image
+
+		const divTag = document.createElement("div");
+		divTag.appendChild(document.createTextNode(myText[i]));
+		divTag.className = "imgCaption";
+		divTag.style.width = imgWidth + "px";
+		document.body.appendChild(divTag);
+		//instead of appending to the body you can append to a specific tag in the body of your html doc, such as a table cell or a p
+		//document.getElementById("idOfElement").appendChild(imgTag);
 	}
+
+	document.getElementById("myBtn").removeEventListener("click", showStuff);
 }
 		
+</script>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"
+	integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+<script>
+	jQuery(
+		function(){
+			const myText = ["Dog", "Cat", "Cow", "Horse"];
+			const mySound = ["Woof", "Mew", "Mooooo", "Nayyy"];
+
+			//instead of a length if statement to preloud images you can use the following (in JS or jQuery)
+			for(let i = 0; i < myText.length; i++){
+				const imageObj = new Image();
+				imageObj.src = "images/" + myText[i] + ".jpg";
+			}//end for loop
+
+			$("#myBtn").click(
+				function(){
+					
+				}//end anon function
+			)//end of click event
+		}//end master function
+	);//end jQuery
 </script>
 </head>
 <body>
