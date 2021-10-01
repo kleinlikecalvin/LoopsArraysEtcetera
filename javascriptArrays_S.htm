@@ -8,6 +8,19 @@
 	.imgStyle {border: 7px double black}
 </style>
 <script>
+	if(document.images){
+		const pic1 = new Image();
+		pic1.src = "images/dog.jpg";
+				
+		const pic2 = new Image();
+		pic2.src = "images/cat.jpg";
+				
+		const pic3 = new Image();
+		pic3.src = "images/cow.jpg";
+				
+		const pic4 = new Image();
+		pic4.src = "images/horse.jpg";
+	}//in devtools Network tab you can see how long it took for them to upload
 document.addEventListener("DOMContentLoaded", function() {
 	document.getElementById("myBtn").addEventListener("click", showStuff);
 	}//end of loadEventListener function
