@@ -37,6 +37,7 @@
 							$(theText).css("width", theWidth).appendTo("body");
 						}//end each nest anon function
 					);//end each
+					$("#myBtn").unbind();//if the button has multiple event listeners unbind() will remove them all. If you want to remove just one event listener then place the event in quotes between like so ("click")
 				}//end anon function
 			);//end of click event
 		}//end master function
