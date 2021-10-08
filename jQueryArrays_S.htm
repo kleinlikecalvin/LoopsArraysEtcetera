@@ -35,8 +35,23 @@
 							const theText = $("<div>" + value + "</div>");
 							$(theText).addClass("imgCaption");
 							$(theText).css("width", theWidth).appendTo("body");
+
+							//setTimeout(function()), numberOfMsToDelay
+							setTimeout(function(){
+								let newDiv = $("<div style='top: 0px; left: 80px; margin: 0 auto;position: absolute; color: paleturquoise; font-family: impact;'>" + mySound[index] + "</div>");//creates new div elements but does not show them in the document
+
+								const imagePos = $(theImg).position();//as the each loop processes each image, the postion of each image is captured. It gives both the x and y
+								//console.log(imagePos);
+
+								$("body").append(newDiv);//adds the div to the body of the document so they are visible
+
+								//animate(cssPropertyToAnimate, duration)
+								$(newDiv).animate({top:imagePos.top}, 1000)//opacity, top, left, width, height, etc
+							}, index * 1000 //if you just do 2000 then there is a 2s delay before ALL ITEMS animate at the same time. If you add a variable like i for index then you take the index from each loop and multiply it by 2000 so there's individual animations and delays. 
+							);//end setTimeout
 						}//end each nest anon function
 					);//end each
+		
 					$("#myBtn").unbind();//if the button has multiple event listeners unbind() will remove them all. If you want to remove just one event listener then place the event in quotes between like so ("click")
 				}//end anon function
 			);//end of click event
